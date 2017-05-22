@@ -6,6 +6,7 @@ TEXT = 3
 
 # 見出しの末尾から見出しの順序を取得する
 def mark_index_num(text)
+  return if text.nil?
   return text.split("").last.to_i
 end
 
@@ -69,6 +70,8 @@ def main
   l_index = mark_index_num(ARGV[0])
   m_index = mark_index_num(ARGV[1])
   s_index = mark_index_num(ARGV[2])
+
+  return unless !l_index.nil? && !m_index.nil? && !s_index.nil?
 
   begin
     File.open("test_2.md") do |file|
